@@ -39,10 +39,14 @@
 <div id="comments">
   <%= render :partial => @post.comments.reverse %>
 </div>
+<hr>
 
 <%= form_for [@post, Comment.new], :remote => true do |f| %>
   <p>
-    <%= f.label :body, "New Comment" %><br />
+    <%= f.label :body, "New Comment" %><br /><br />
+	<%= f.label :name, "Name" %><br />
+	<%= f.text_field :name %><br />
+	<%= f.label :body, "Comment" %><br />
 	<%= f.text_area :body %>
   </p>
   <p><%= f.submit "Add Comment" %></p>
